@@ -12,9 +12,7 @@
   </div>
   <button ng-click='addUser()' type="submit" class="btn btn-default">Submit</button>
 </form>
-
 </br></br>
-
  <h4> &nbsp; Get Pirates</br></h4>
   <button ng-click='getUser()' type="submit" class="btn btn-default">Get them now!</button>
 
@@ -22,9 +20,12 @@
   <ul ng-repeat='user in userData'>
     <a href='#/user' ng-click='getSingleUserId(user)'><li>{{user.name}}</li></a>
     <ul ng-repeat='ship in user.ships'>
-    <li>Ship Name: {{ship.name}}</li>
+    <li>Ship Name: {{ship.name}} <button ng-click="deleteShip(ship._id)" class='btn btn-primary'><span class='glyphicon glyphicon-minus'>delete</span></button>
+
+     <a href='#/editship' <button ng-click="getShipId(ship)" class='btn btn-primary'><span>edit</span></button></a></li>
       <ul>
       <li>Missions: {{ship.missions}}</li>
     </ul>
   </ul>
 </div>
+

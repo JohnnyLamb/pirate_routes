@@ -30,6 +30,25 @@ router.post('/', function(req, res, next) {
     .done();
 });
 
+
+//save a ship to a user
+router.put('/:id', function(req, res, next) {
+    var update = {
+        name:req.body.name,
+        missions:req.body.missions
+    };
+    console.log(update);
+    var id = req.params.id;
+    Ship.findByIdAndUpdateQ(id, update)
+    .then(function(result) {
+        res.json(result);
+    })
+    .catch(function(err) {
+        res.send(err);
+    })
+    .done();
+});
+
 //delete a user's ships
 router.delete('/:id', function(req, res, next) {
     Ship.findByIdAndRemove(req.params.id,
